@@ -2,7 +2,7 @@
 
 const loot = [
     {"name": "Bitcoin",
-     "img": "/https://github.com/ethanhart35/TarkovMarketSimulator/images/physical_bitcoin.png",
+     "img": "https://github.com/ethanhart35/TarkovMarketSimulator/images/physical_bitcoin.png",
      "rare": "insane",
      "price": 250000+"₽"
     },
