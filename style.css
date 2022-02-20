@@ -1,0 +1,25 @@
+html {
+    color: white;
+}
+
+body {
+    background-color: #000;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loot-container {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    margin: 10% auto;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #0d0d0d;
+}
