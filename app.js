@@ -450,6 +450,7 @@ function randomizeloot() {
     document.getElementById("lootimage").innerHTML = "<img src='"+randLoot.img+"' alt='my image'>";
     document.getElementById("lootname").innerHTML = randLoot.name
     document.getElementById("lootprice").innerHTML = randLoot.price
+    document.getElementById("lootprice").style.color = "#AEAEB0"
 }
 
 document.getElementById("roll").addEventListener("click", randomizeloot);
