@@ -598,23 +598,75 @@ const loot = [
      price: 3000+"₽"
     }
 ]
+    var randLoot
 
-function lootroll() {
-    var rolltimes = 3
-    $( ".loot-container" ).empty();
-    for(var i = 0; i < rolltimes; i++){
-        const randLoot = loot[Math.floor(Math.random()*loot.length)]
+    function lootroll() {
+        console.log("lootroll function run")
+        randLoot = loot[Math.floor(Math.random() * loot.length)]
 
-        var lootbox = $ ('<div>',{
+        if (randLoot.rare === "common") {
+            console.log("common")
+            postloot()
+        } else if (randLoot.rare === "medium") {
+            console.log("medium")
+            let chance = Math.floor(Math.random() * 5) + 1
+            if (chance === 1) {
+                console.log("MEDIUM")
+                postloot()
+            } else {
+                console.log('bad luck')
+                lootroll()
+            }
+        } else if (randLoot.rare === "rare") {
+            console.log("rare")
+            let chance = Math.floor(Math.random() * 25) + 1
+            if (chance === 1) {
+                console.log("RARE")
+                postloot()
+            } else {
+                console.log('bad luck')
+                lootroll()
+            }
+        } else if (randLoot.rare === "insane") {
+            console.log("insane")
+            let chance = Math.floor(Math.random() * 100) + 1
+            if (chance === 1) {
+                console.log("INSANE")
+                postloot()
+            } else {
+                console.log('bad luck')
+                lootroll()
+            }
+
+        }
+    }
+
+    function postloot() {
+        var lootbox = $('<div>', {
             class: 'loot-box',
         })
-
-    
-        lootbox.append("<img src="+randLoot.img+">").append("<br>").append(randLoot.name).append("<br>").append(randLoot.price)
-
-        $( ".loot-container" ).append(lootbox)
+        lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append(randLoot.name).append("<br>").append("<p>"+randLoot.price+"</p>")
+        $(".loot-container").append(lootbox)
     }
-}
 
-document.getElementById("roll").addEventListener("click", lootroll);
+
+    function roll() {
+        $(".loot-container").empty();
+        let times = 3
+
+        for (let i=0; i<times; i++) {
+            task(i);
+         }
+           
+         function task(i) {
+           setTimeout(function() {
+               lootroll()
+           }, 1500 * i);
+         }
+        // for (var i = 0; i < times; i++){
+        //     lootroll()
+        // }
+    }
+
+    document.getElementById("roll").addEventListener("click", roll)
 });
