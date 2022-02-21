@@ -17,8 +17,30 @@ h1 {
     margin: 100px auto;
 }
 
+h2 {
+    color: #70A804;
+    position: absolute;
+    top: 60%;
+}
+
+h6 {
+    position: absolute;
+    line-height: 1;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    font-size: 9px;
+}
+
+
+
 p {
     color: #AEAEB0;
+    font-size: 14px;
+    line-height: 0;
+    position: relative;
+    bottom: -10px;
 }
 
 .button-container {
