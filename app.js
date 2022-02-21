@@ -1,4 +1,5 @@
-
+$( document ).ready(function() {
+    // Handler for .ready() called.
 
 const loot = [
     {"name": "Bitcoin",
@@ -19,7 +20,7 @@ const loot = [
     {"name": "GP Coin",
      "img": "https://ethanhart35.github.io/TarkovMarketSimulator/images/GP_coin.png",
      "rare": "rare",
-     "price": 250000+"₽"
+     "price": 20000+"₽"
     },
     {"name": "Skullring",
      "img": "https://ethanhart35.github.io/TarkovMarketSimulator/images/skullring.png",
@@ -441,17 +442,179 @@ const loot = [
      rare: "rare",
      price: 20000+"₽"
     }
+    {name: "Wires",
+     img: "/images/wires.png",
+     rare: "common",
+     price: 10000+"₽"
+    },
+    {name: "Soap",
+     img: "/images/soap.png",
+     rare: "common",
+     price: 5000+"₽"
+    },
+    {name: "Clin Window Cleaner",
+     img: "/images/clin.png",
+     rare: "common",
+     price: 15000+"₽"
+    },
+    {name: "Insulating Tape",
+     img: "/images/tape.png",
+     rare: "common",
+     price: 10000+"₽"
+    },
+    {name: "Stick of Ram",
+     img: "/images/ram.png",
+     rare: "medium",
+     price: 17000+"₽"
+    },
+    {name: "Broken Gphone",
+     img: "/images/gphone.png",
+     rare: "common",
+     price: 15000+"₽"
+    },
+    {name: "Pressure Gauge",
+     img: "/images/pressuregauge.png",
+     rare: "rare",
+     price: 50000+"₽"
+    },
+    {name: "Powerbank",
+     img: "/images/powerbank.png",
+     rare: "rare",
+     price: 45000+"₽"
+    },
+    {name: "Light Bulb",
+     img: "/images/lightbulb.png",
+     rare: "common",
+     price: 12000+"₽"
+    },
+    {name: "SAS Drive",
+     img: "/images/sasdrive.png",
+     rare: "rare",
+     price: 45000+"₽"
+    },
+    {name: "Military Circuit Board",
+     img: "/images/milcircuitboard.png",
+     rare: "insane",
+     price: 70000+"₽"
+    },
+    {name: "Power Relay",
+     img: "/images/relay.png",
+     rare: "medium",
+     price: 20000+"₽"
+    },
+    {name: "Cyclon",
+     img: "/images/cyclon.png",
+     rare: "insane",
+     price: 65000+"₽"
+    },
+    {name: "Teapot",
+     img: "/images/teapot.png",
+     rare: "insane",
+     price: 50000+"₽"
+    },
+    {name: "Helix",
+     img: "/images/helix.png",
+     rare: "rare",
+     price: 35000+"₽"
+    },
+    {name: "Wooden Clock",
+     img: "/images/clock.png",
+     rare: "rare",
+     price: 65000+"₽"
+    },
+    {name: "Silicone Tube",
+     img: "/images/tube.png",
+     rare: "common",
+     price: 25000+"₽"
+    },
+    {name: "Dry Fuel",
+     img: "/images/dfuel.png",
+     rare: "rare",
+     price: 35000+"₽"
+    },
+    {name: "Pack of Screws",
+     img: "/images/screws.png",
+     rare: "common",
+     price: 12000+"₽"
+    },
+    {name: "Military Gyrotachometer",
+     img: "/images/gyro.png",
+     rare: "insane",
+     price: 40000+"₽"
+    },
+    {name: "LEDX",
+     img: "/images/ledx.png",
+     rare: "insane",
+     price: 1100000+"₽"
+    },
+    {name: "AA Battery",
+     img: "/images/aabat.png",
+     rare: "common",
+     price: 5000+"₽"
+    },
+    {name: "Spark Plug",
+     img: "/images/splug.png",
+     rare: "common",
+     price: 10000+"₽"
+    },
+    {name: "GPX",
+     img: "/images/gpx.png",
+     rare: "medium",
+     price: 15000+"₽"
+    },
+    {name: "Virtex",
+     img: "/images/virtex.png",
+     rare: "insane",
+     price: 65000+"₽"
+    },
+    {name: "DVD Drive",
+     img: "/images/dvd.png",
+     rare: "common",
+     price: 6000+"₽"
+    },
+    {name: "RFID",
+     img: "/images/rfid.png",
+     rare: "insane",
+     price: 65000+"₽"
+    },
+    {name: "Weapon Parts",
+     img: "/images/weaponparts.png",
+     rare: "medium",
+     price: 12000+"₽"
+    },
+    {name: "Powercord",
+     img: "/images/powercord.png",
+     rare: "medium",
+     price: 15000+"₽"
+    },
+    {name: "Duct Tape",
+     img: "/images/ductape.png",
+     rare: "common",
+     price: 5000+"₽"
+    },
+    {name: "Pack of Chlorine",
+     img: "/images/chlorine.png",
+     rare: "common",
+     price: 3000+"₽"
+    }
 ]
 
-var randLoot = []
+function lootroll() {
+    var rolltimes = 3
+    $( ".loot-container" ).empty();
+    for(var i = 0; i < rolltimes; i++){
+        const randLoot = loot[Math.floor(Math.random()*loot.length)]
 
-function randomizeloot() {
-    const randLoot = loot[Math.floor(Math.random()*loot.length)]
-    document.getElementById("lootimage").innerHTML = "<img src='"+randLoot.img+"' alt='my image'>";
-    document.getElementById("lootname").innerHTML = randLoot.name
-    document.getElementById("lootprice").innerHTML = randLoot.price
-    document.getElementById("lootprice").style.color = "#AEAEB0"
+        var lootbox = $ ('<div>',{
+            class: 'loot-box',
+        })
+
+    
+        lootbox.append("<img src="+randLoot.img+">").append("<br>").append(randLoot.name).append("<br>").append(randLoot.price)
+
+        $( ".loot-container" ).append(lootbox)
+    }
 }
 
-document.getElementById("roll").addEventListener("click", randomizeloot);
-
+document.getElementById("roll").addEventListener("click", lootroll);
+});
