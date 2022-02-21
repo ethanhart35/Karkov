@@ -28,6 +28,13 @@ body {
     height: 30px;
     position: absolute;
     top: 50%;
+    transition: .2s ease-in;
+}
+
+#roll:hover {
+    transition: .2s ease-in;
+    color: #000;
+    background-color: #9a8866;
 }
 
 .loot-container {
