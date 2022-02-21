@@ -26,13 +26,22 @@ body {
     border-radius: 5px;
     width: 100px;
     height: 30px;
+    position: absolute;
+    top: 50%;
 }
 
 .loot-container {
-    width: 250px;
-    height: 250px;
     display: flex;
-    margin: 10% auto;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.loot-box {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    margin: 25px 10px 25px 10px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -40,4 +49,11 @@ body {
     background-color: #0d0d0d;
     border: 2px solid #9a886686;
     border-radius: 5px;
+    text-align: center;
+    transition: .1s ease-out;
+}
+
+.loot-box:hover {
+    transform: scale(1.01);
+    transition: .1s ease-in;
 }
