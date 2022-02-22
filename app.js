@@ -783,7 +783,7 @@ $(document).ready(function () {
         function task(i) {
             setTimeout(function () {
                 lootroll()
-            }, 1500 * i);
+            }, 900 * i);
         }
     }
 
