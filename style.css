@@ -11,6 +11,7 @@ html {
 
 body {
     background-color: #000;
+    margin: 0;
 }
 
 h1 {
@@ -19,8 +20,8 @@ h1 {
 
 h2 {
     color: #70A804;
-    position: absolute;
-    top: 60%;
+    text-align: center;
+    margin: 100px 0 0 0;
 }
 
 h6 {
@@ -47,6 +48,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 100px 0 0 0;
 }
 
 #roll {
@@ -56,9 +58,8 @@ p {
     border-radius: 5px;
     width: 130px;
     height: 40px;
-    position: absolute;
-    top: 50%;
     transition: .2s ease-in;
+    font-size: 15px;
 }
 
 #roll:hover {
@@ -71,6 +72,8 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 100px 0 0 0;
+    max-height: 962px;
 }
 
 .loot-box {
