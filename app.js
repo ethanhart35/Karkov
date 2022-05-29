@@ -776,6 +776,7 @@ $(document).ready(function () {
 
     function roll() {
         $(".loot-container").empty();
+        $("#clear").show();
         for (let i = 0; i < 3; i++) {
             task(i);
         }
@@ -788,17 +789,17 @@ $(document).ready(function () {
     }
 
 
-
-
-
-
-
-
-
-
-
     document.getElementById("roll").addEventListener("click", roll)
-    document.getElementById("clear").addEventListener("click", clear)
+
+
+
+
+
+
+
+
+
+    $("#clear").click(clear);
 
     function clear() {
         $(".balance").html(0 + "₽")
