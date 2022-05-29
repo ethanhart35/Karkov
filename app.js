@@ -722,6 +722,24 @@ $(document).ready(function () {
     var randLoot
     var balance = 0
 
+
+    $("#roll").click(roll);
+
+    function roll() {
+        $(".loot-container").empty();
+        $("#clear").show();
+        $(".stash").show();
+        for (let i = 0; i < 3; i++) {
+            task(i);
+        }
+
+        function task(i) {
+            setTimeout(function () {
+                lootroll()
+            }, 900 * i);
+        }
+    }
+
     function lootroll() {
         console.log("lootroll function run")
         randLoot = loot[Math.floor(Math.random() * loot.length)]
@@ -774,25 +792,7 @@ $(document).ready(function () {
         $(".loot-container").append(lootbox)
     }
 
-    function roll() {
-        $(".loot-container").empty();
-        $("#clear").show();
-        $(".stash").show();
-        for (let i = 0; i < 3; i++) {
-            task(i);
-        }
-
-        function task(i) {
-            setTimeout(function () {
-                lootroll()
-            }, 900 * i);
-        }
-    }
-
-
-    document.getElementById("roll").addEventListener("click", roll)
-
-
+  
 
 
 
