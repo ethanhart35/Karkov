@@ -798,4 +798,10 @@ $(document).ready(function () {
 
 
     document.getElementById("roll").addEventListener("click", roll)
+    document.getElementById("clear").addEventListener("click", clear)
+
+    function clear() {
+        $(".balance").html(0 + "₽")
+        balance = 0
+    }
 });
