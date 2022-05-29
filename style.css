@@ -101,7 +101,7 @@ p {
 }
 
 .balance {
-    margin: 40px 70px 0 70px;
+    margin: 40px 20% 0 20%;
     display: none;
     border: 1px solid rgb(0, 59, 0);
 }
@@ -134,6 +134,12 @@ p {
     height: 40px;
     transition: .2s ease-in;
     font-size: 15px;
+}
+
+#clear:hover {
+    transition: .2s ease-in;
+    color: #000;
+    background-color: #9a8866;
 }
 
 .loot-container {
