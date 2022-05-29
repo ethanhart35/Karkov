@@ -14,8 +14,31 @@ body {
     margin: 0;
 }
 
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-150%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+    from {
+        opacity: 0;
+        border-bottom: 2px solid rgba(255, 255, 255, 0)
+    }
+
+    to {
+        opacity: 1;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.418);
+    }
+
+}
+
 h1 {
     margin: 100px auto;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.418);
+    animation: 1.5s ease-out 0s 1 slideInFromTop;
 }
 
 h2 {
