@@ -777,6 +777,7 @@ $(document).ready(function () {
     function roll() {
         $(".loot-container").empty();
         $("#clear").show();
+        $(".stash").show();
         for (let i = 0; i < 3; i++) {
             task(i);
         }
