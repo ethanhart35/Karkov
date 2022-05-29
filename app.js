@@ -729,6 +729,7 @@ $(document).ready(function () {
         $(".loot-container").empty();
         $("#clear").show();
         $(".stash").show();
+        $(".balance").show();
         for (let i = 0; i < 3; i++) {
             task(i);
         }
