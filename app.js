@@ -12,6 +12,7 @@ $(document).ready(function () {
     $("#roll").click(roll);
 
     function roll() {
+        $("#roll").hide();
         var time = 15;
         $(".loot-container").empty();
         $("#clear").show();
@@ -39,6 +40,7 @@ $(document).ready(function () {
 
         setTimeout(function () {
             $(".loot-container").html("");
+            $("#roll").show();
             for (let i = 0; i < 3; i++) {
                 task(i);
             }
