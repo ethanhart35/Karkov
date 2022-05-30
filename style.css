@@ -104,6 +104,7 @@ p {
     margin: 40px 20% 0 20%;
     display: none;
     border: 1px solid rgb(0, 59, 0);
+    min-height: 30px;
 }
 
 #roll {
