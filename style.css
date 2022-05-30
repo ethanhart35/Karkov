@@ -79,6 +79,12 @@ p {
     bottom: -10px;
 }
 
+.time {
+    color: red;
+    font-size: 32px;
+    font-weight: bold;
+}
+
 .button-container {
     display: flex;
     justify-content: center;

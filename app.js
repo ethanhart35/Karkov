@@ -12,49 +12,33 @@ $(document).ready(function () {
     $("#roll").click(roll);
 
     function roll() {
+        var time = 15;
         $(".loot-container").empty();
         $("#clear").show();
         $(".stash").show();
         $(".balance").show();
+        $(".loot-container").html("<p class = time>" + time + "s" + "</p>");
 
-        var time = 16;      //  create a loop function
-       
+        
+        myLoop(); 
 
         function myLoop() {   
-            setTimeout(function() {   //  call a 3s setTimeout when the loop is called
-                 //  your code here
-              time--;
+            setTimeout(function() {
+              
               console.log(time);
-              $(".loot-container").html(time)
-              if (time > 0) {           //  if the counter < 10, call the loop function
-                myLoop();             //  ..  again which will trigger another 
-              }                       //  ..  setTimeout()
+              $(".loot-container").html("<p class = time>" + time + "s" + "</p>");
+              if (time > 0) {
+                time--;
+                myLoop();
+              }
             }, 1000)
           }
           
-          myLoop();   
+            
 
-
-
-
-
-        // setTimeout(function () {
-        //     var time = 6;
-        //     for (var y = 6; y > 0; y--) {
-        //         task(y);
-        //         time--
-        //         console.log(time)
-        //     }
-
-
-            // function task(y) {
-            //     setTimeout(function () {
-            //         $(".loot-container").html(y)
-            //     }, 1000 * y);
-            // }
-        // }, 0);
 
         setTimeout(function () {
+            $(".loot-container").html("");
             for (let i = 0; i < 3; i++) {
                 task(i);
             }
