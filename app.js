@@ -1,19 +1,15 @@
 import { loot } from "./loot.js";
 
-console.log(loot)
-
-$(document).ready(function () {
-    // Handler for .ready() called.
-
-    var randLoot
-    var balance = 0
+    var randLoot;
+    var balance = 0;
 
     //On button click run the roll function
     $("#roll").click(roll);
 
+    //Clears loot container and runs countdown function and then runs the lootroll function 3 times
     function roll() {
-        $("#roll").hide();
         var time = 15;
+        $("#roll").hide();
         $(".loot-container").empty();
         $("#clear").show();
         $(".stash").show();
@@ -26,17 +22,14 @@ $(document).ready(function () {
         function myLoop() {   
             setTimeout(function() {
               
-              console.log(time);
               $(".loot-container").html("<p class = time>" + time + "s" + "</p>");
               if (time > 0) {
                 time--;
                 myLoop();
               }
-            }, 1000)
-          }
+            }, 1000);
+          };
           
-            
-
 
         setTimeout(function () {
             $(".loot-container").html("");
@@ -51,47 +44,35 @@ $(document).ready(function () {
                 }, 1500 * i);
             }
         }, 17000);
-    }
+    };
 
-    //lootroll function decides the rarity of an item
+    //lootroll function decides the rarity of an item and then runs postloot function
     function lootroll() {
-        console.log("lootroll function run")
         randLoot = loot[Math.floor(Math.random() * loot.length)]
 
         if (randLoot.rare === "common") {
-            console.log("common")
-            postloot()
+            postloot();
         } else if (randLoot.rare === "medium") {
-            console.log("medium")
             let chance = Math.floor(Math.random() * 5) + 1
             if (chance === 1) {
-                console.log("MEDIUM")
-                postloot()
+                postloot();
             } else {
-                console.log('bad luck')
-                lootroll()
+                lootroll();
             }
         } else if (randLoot.rare === "rare") {
-            console.log("rare")
             let chance = Math.floor(Math.random() * 25) + 1
             if (chance === 1) {
-                console.log("RARE")
-                postloot()
+                postloot();
             } else {
-                console.log('bad luck')
-                lootroll()
+                lootroll();
             }
         } else if (randLoot.rare === "insane") {
-            console.log("insane")
             let chance = Math.floor(Math.random() * 75) + 1
             if (chance === 1) {
-                console.log("INSANE")
-                postloot()
+                postloot();
             } else {
-                console.log('bad luck')
-                lootroll()
+                lootroll();
             }
-
         }
     }
 
@@ -100,21 +81,18 @@ $(document).ready(function () {
         var lootbox = $('<div>', {
             class: 'loot-box',
         })
-        balance = balance + randLoot.price
-        console.log(balance)
-        $(".balance").html(balance + "₽")
-        lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append(randLoot.name).append("<br>").append("<p>" + randLoot.price + "₽" + "</p>")
-        $(".loot-container").append(lootbox)
+        balance = balance + randLoot.price;
+        $(".balance").html(balance + "₽");
+        lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append(randLoot.name).append("<br>").append("<p>" + randLoot.price + "₽" + "</p>");
+        $(".loot-container").append(lootbox);
     }
 
 
     //on button click run the clear function
     $("#clear").click(clear);
 
+    //Resets balance element to 0
     function clear() {
-        $(".balance").html(0 + "₽")
-        balance = 0
+        $(".balance").html(0 + "₽");
+        balance = 0;
     }
-
-
-});
