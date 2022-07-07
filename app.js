@@ -9,7 +9,7 @@ import { loot } from "./loot.js";
 
     //Clears loot container and runs countdown function and then runs the lootroll function 3 times
     function roll() {
-        var time = 15;
+        let time = 15;
         $("#roll").hide();
         $(".loot-container").empty();
         $("#bank").show();
@@ -17,20 +17,13 @@ import { loot } from "./loot.js";
         $(".balance").show();
         $(".loot-container").html("<p class = time>" + time + "s" + "</p>");
 
-        
-        myLoop(); 
-
-        function myLoop() {   
-            setTimeout(function() {
-              
-              $(".loot-container").html("<p class = time>" + time + "s" + "</p>");
-              if (time > 0) {
-                time--;
-                myLoop();
-              }
-            }, 1000);
-          };
-          
+        const countdown = setInterval(() => {
+            time--;
+            $(".loot-container").html("<p class = time>" + time + "s" + "</p>")
+            if(time<1){
+                clearInterval(countdown)
+            }
+        }, 1000);
 
         setTimeout(function () {
             $(".loot-container").html("");
@@ -44,7 +37,7 @@ import { loot } from "./loot.js";
                     lootroll()
                 }, 1500 * i);
             }
-        }, 17000);
+        }, 15500);
     };
 
     //lootroll function decides the rarity of an item and then runs postloot function
