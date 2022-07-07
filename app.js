@@ -92,7 +92,9 @@ import { loot } from "./loot.js";
 
     //Resets balance element to 0
     function sell() {
-        bank_balance = bank_balance + balance;
+        var cookie = parseInt(document.cookie)
+        console.log(cookie)
+        bank_balance = balance + cookie;
         console.log(bank_balance);
         document.cookie = bank_balance;
         $(".balance").html(0 + "₽");
@@ -110,4 +112,5 @@ import { loot } from "./loot.js";
 
     function getbal() {
         $(".bank-balance").html(document.cookie + "₽")
+        $(".get-balance").hide()
     }
