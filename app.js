@@ -94,12 +94,6 @@ import { loot } from "./loot.js";
         balance = 0;
     }
 
-    $(".karbank").click(bankfunction);
-
-    function bankfunction() {
-        $(".bank-balance").html(bank_balance + "₽");
-    }
-
     $(".get-balance").click(getbal);
 
     function getbal() {
