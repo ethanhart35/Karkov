@@ -2,6 +2,7 @@ import { loot } from "./loot.js";
 
     var randLoot;
     var balance = 0;
+    var bank_balance = 0;
 
     //On button click run the roll function
     $("#roll").click(roll);
@@ -87,12 +88,26 @@ import { loot } from "./loot.js";
         $(".loot-container").append(lootbox);
     }
 
-
-    //on button click run the clear function
-    $("#bank").click(clear);
+    $("#bank").click(sell)
 
     //Resets balance element to 0
-    function clear() {
+    function sell() {
+        bank_balance = bank_balance + balance;
+        console.log(bank_balance);
+        document.cookie = bank_balance;
         $(".balance").html(0 + "₽");
         balance = 0;
+    }
+
+    $(".karbank").click(bankfunction)
+
+    function bankfunction() {
+        $(".bank-balance").html(bank_balance + "₽")
+        console.log(bank_balance)
+    }
+
+    $(".get-balance").click(getbal)
+
+    function getbal() {
+        $(".bank-balance").html(document.cookie + "₽")
     }

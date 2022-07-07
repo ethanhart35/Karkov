@@ -69,10 +69,14 @@ a {
     top: 25px
 }
 
+a:hover {
+    color: #6b6b6b;
+}
+
 h1 {
     margin: 100px auto;
     border-bottom: 2px solid rgba(255, 255, 255, 0.418);
-    animation: 1.5s ease-out 0s 1 slideInFromTop;
+    animation: 1s ease-out 0s 1 slideInFromTop;
     font-size: 40px;
     text-align: center;
 }
@@ -92,4 +96,28 @@ h6 {
     transform: translateX(-50%);
     bottom: 10px;
     font-size: 11px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0 0;
+}
+
+.get-balance {
+    color: #9a8866;
+    background-color: #1B1B1B;
+    border: none;
+    border-radius: 5px;
+    width: 130px;
+    height: 40px;
+    transition: .2s ease-in;
+    font-size: 15px;
+}
+
+.get-balance:hover {
+    transition: .2s ease-in;
+    color: #000;
+    background-color: #9a8866;
 }
