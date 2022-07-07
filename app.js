@@ -92,9 +92,14 @@ import { loot } from "./loot.js";
 
     //Resets balance element to 0
     function sell() {
-        var cookie = parseInt(document.cookie)
-        console.log(cookie)
-        bank_balance = balance + cookie;
+        var cookie = parseInt(document.cookie);
+        console.log(cookie);
+        if (cookie > 0) {
+            bank_balance = bank_balance + balance + cookie;
+        }
+        else {
+            bank_balance = bank_balance + balance
+        }
         console.log(bank_balance);
         document.cookie = bank_balance;
         $(".balance").html(0 + "₽");
