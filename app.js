@@ -21,12 +21,8 @@ import { loot } from "./loot.js";
             time--;
             $(".loot-container").html("<p class = time>" + time + "s" + "</p>")
             if(time<1){
-                clearInterval(countdown)
-            }
-        }, 1000);
-
-        setTimeout(function () {
-            $(".loot-container").html("");
+                clearInterval(countdown);
+                $(".loot-container").html("");
             $("#roll").show();
             for (let i = 0; i < 3; i++) {
                 task(i);
@@ -37,7 +33,8 @@ import { loot } from "./loot.js";
                     lootroll()
                 }, 1500 * i);
             }
-        }, 15500);
+            }
+        }, 1000);
     };
 
     //lootroll function decides the rarity of an item and then runs postloot function
