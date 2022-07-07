@@ -11,7 +11,7 @@ import { loot } from "./loot.js";
         var time = 15;
         $("#roll").hide();
         $(".loot-container").empty();
-        $("#clear").show();
+        $("#bank").show();
         $(".stash").show();
         $(".balance").show();
         $(".loot-container").html("<p class = time>" + time + "s" + "</p>");
@@ -89,7 +89,7 @@ import { loot } from "./loot.js";
 
 
     //on button click run the clear function
-    $("#clear").click(clear);
+    $("#bank").click(clear);
 
     //Resets balance element to 0
     function clear() {
