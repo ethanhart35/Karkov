@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&family=Ubuntu:wght@300&display=swap');
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    color: #9a8866;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+body {
+    background-color: #000;
+    margin: 0;
+}
+
+.nav {
+    top: -1px;
+    height: 60px;
+    background-color: #1B1B1B;
+    padding: 10px;
+    overflow: hidden;
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-150%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+    from {
+        opacity: 0;
+        border-bottom: 2px solid rgba(255, 255, 255, 0)
+    }
+
+    to {
+        opacity: 1;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.418);
+    }
+
+}
+
+@keyframes buttonGrow {
+    from {
+        opacity: 0;
+        height: 0;
+    }
+
+    to {
+        opacity: 1;
+        height: 40px;
+    }
+
+}
+
+h1 {
+    margin: 100px auto;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.418);
+    animation: 1.5s ease-out 0s 1 slideInFromTop;
+    font-size: 40px;
+}
+
+h2 {
+    color: #70A804;
+    text-align: center;
+}
+
+h6 {
+    position: absolute;
+    line-height: 1;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    font-size: 11px;
+}
+
+p {
+    color: #AEAEB0;
+    font-size: 14px;
+    line-height: 0;
+    position: relative;
+    bottom: -10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    right: 50px;
+    top: 25px
+}
+
+a:hover {
+    color: #6b6b6b;
+}
+
+.time {
+    color: red;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0 0;
+}
+
+.button-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0 0;
+}
+
+.stash {
+    display: none;
+    color: #9a8866;
+    margin: 60px 0 0 0;
+    border-bottom: 4px solid #1B1B1B;
+}
+
+.balance {
+    margin: 40px 20% 0 20%;
+    display: none;
+    border: 1px solid rgb(0, 59, 0);
+    min-height: 30px;
+}
+
+#roll {
+    color: #9a8866;
+    background-color: #1B1B1B;
+    border: none;
+    border-radius: 5px;
+    width: 130px;
+    height: 40px;
+    transition: .2s ease-in;
+    font-size: 15px;
+    animation: 1.5s ease-in-out 0s 1 buttonGrow;
+}
+
+#roll:hover {
+    transition: .2s ease-in;
+    color: #000;
+    background-color: #9a8866;
+}
+
+#bank {
+    display: none;
+    color: #9a8866;
+    background-color: #1B1B1B;
+    border: none;
+    border-radius: 5px;
+    width: 130px;
+    height: 40px;
+    transition: .2s ease-in;
+    font-size: 15px;
+}
+
+#bank:hover {
+    transition: .2s ease-in;
+    color: #000;
+    background-color: #9a8866;
+}
+
+.loot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0 0 0;
+}
+
+.loot-box {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    margin: 25px 10px 25px 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #0d0d0d;
+    border: 2px solid #9a886686;
+    border-radius: 5px;
+    text-align: center;
+    transition: .1s ease-out;
+}
+
+.loot-box:hover {
+    transform: scale(1.01);
+    transition: .1s ease-in;
+}
