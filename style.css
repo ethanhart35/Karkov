@@ -65,11 +65,9 @@ h6 {
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -15px;
-    font-size: 9px;
+    bottom: 10px;
+    font-size: 11px;
 }
-
-
 
 p {
     color: #AEAEB0;
