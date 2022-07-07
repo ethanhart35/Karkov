@@ -93,29 +93,26 @@ import { loot } from "./loot.js";
     //Resets balance element to 0
     function sell() {
         var cookie = parseInt(document.cookie);
-        console.log(cookie);
         if (cookie > 0) {
             bank_balance = bank_balance + balance + cookie;
         }
         else {
-            bank_balance = bank_balance + balance
+            bank_balance = bank_balance + balance;
         }
-        console.log(bank_balance);
         document.cookie = bank_balance;
         $(".balance").html(0 + "₽");
         balance = 0;
     }
 
-    $(".karbank").click(bankfunction)
+    $(".karbank").click(bankfunction);
 
     function bankfunction() {
-        $(".bank-balance").html(bank_balance + "₽")
-        console.log(bank_balance)
+        $(".bank-balance").html(bank_balance + "₽");
     }
 
-    $(".get-balance").click(getbal)
+    $(".get-balance").click(getbal);
 
     function getbal() {
-        $(".bank-balance").html(document.cookie + "₽")
-        $(".get-balance").hide()
+        $(".bank-balance").html(document.cookie + "₽");
+        $(".get-balance").hide();
     }
