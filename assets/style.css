@@ -19,11 +19,13 @@ body {
 }
 
 .nav {
-    top: -1px;
     height: 60px;
     background-color: #1B1B1B;
     padding: 10px;
     overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 @keyframes slideInFromTop {
@@ -93,11 +95,13 @@ p {
 a {
     text-decoration: none;
     color: inherit;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
-    position: absolute;
-    right: 50px;
-    top: 25px
+    padding: 0 10px;
+}
+
+a:nth-child(2) {
+    border-left: 2px solid #aeaeb03d;
 }
 
 a:hover {
