@@ -67,6 +67,7 @@ h1 {
     border-bottom: 2px solid rgba(255, 255, 255, 0.418);
     animation: 1.5s ease-out 0s 1 slideInFromTop;
     font-size: 40px;
+    letter-spacing: 4px;
 }
 
 h2 {
@@ -98,6 +99,7 @@ a {
     font-size: 25px;
     font-weight: bold;
     padding: 0 10px;
+    letter-spacing: 3px;
 }
 
 a:nth-child(2) {
@@ -151,6 +153,7 @@ a:hover {
     height: 40px;
     transition: .2s ease-in;
     font-size: 15px;
+    letter-spacing: 2px;
     animation: 1.5s ease-in-out 0s 1 buttonGrow;
 }
 
