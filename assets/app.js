@@ -9,7 +9,7 @@ import { loot } from "./loot.js";
 
     //Clears loot container and runs countdown function and then runs the lootroll function 3 times
     function roll() {
-        let time = 15;
+        let time = 10;
         $("#roll").hide();
         $(".loot-container").empty();
         $("#bank").show();
