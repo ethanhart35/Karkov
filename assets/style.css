@@ -93,6 +93,11 @@ p {
     bottom: -10px;
 }
 
+p.time {
+    color: red;
+    font-size: 35px;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -214,10 +219,9 @@ a:hover {
 }
 
 .randlootname {
-    font-size: 20px;
+    font-size: 15px;
     color: #9a8866;
     font-weight: bold;
-    letter-spacing: 1px;
     margin: 10px 0 0 0;
 }
 
