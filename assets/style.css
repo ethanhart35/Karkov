@@ -215,3 +215,19 @@ a:hover {
     transform: scale(1.01);
     transition: .1s ease-in;
 }
+
+.randlootname {
+    font-size: 20px;
+    color: #9a8866;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 10px 0 0 0;
+}
+
+.randlootprice {
+    font-size: 15px;
+    color: #70A804;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 10px 0 0 0;
+}

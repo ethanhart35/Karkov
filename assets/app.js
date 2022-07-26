@@ -74,7 +74,7 @@ import { loot } from "./loot.js";
         })
         balance = balance + randLoot.price;
         $(".balance").html(balance + "₽");
-        lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append(randLoot.name).append("<br>").append("<p>" + randLoot.price + "₽" + "</p>");
+        lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append("<p class = randlootname>" + randLoot.name + "</p>").append("<br>").append("<p class = randlootprice>" + randLoot.price + " ₽" + "</p>");
         $(".loot-container").append(lootbox);
     }
 
