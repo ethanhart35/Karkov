@@ -130,6 +130,13 @@ a:hover {
     margin: 20px 0 0 0;
 }
 
+.balance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0 0;
+}
+
 .stash {
     display: none;
     color: #9a8866;
@@ -138,9 +145,9 @@ a:hover {
 }
 
 .balance {
-    margin: 40px 20% 0 20%;
+    margin: 40px 0 0 0;
     display: none;
-    border: 1px solid rgb(0, 59, 0);
+    max-width: 500px;
     min-height: 30px;
 }
 
