@@ -108,13 +108,10 @@ a:nth-child(2) {
 
 a:hover {
     color: #6b6b6b;
+    border-bottom: 2px solid #aeaeb03d;
+    transition: ease-in-out 0.5s;
 }
 
-.time {
-    color: red;
-    font-size: 32px;
-    font-weight: bold;
-}
 
 .button-container {
     display: flex;
