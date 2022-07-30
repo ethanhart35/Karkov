@@ -72,6 +72,8 @@ a {
 
 a:hover {
     color: #6b6b6b;
+    border-bottom: 2px solid #aeaeb03d;
+    transition: ease-in-out 0.5s;
 }
 
 h1 {
