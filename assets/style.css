@@ -52,12 +52,10 @@ body {
 @keyframes buttonGrow {
     from {
         opacity: 0;
-        height: 0;
     }
 
     to {
         opacity: 1;
-        height: 40px;
     }
 
 }
