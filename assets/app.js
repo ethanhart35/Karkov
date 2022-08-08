@@ -97,9 +97,9 @@ import { loot } from "./loot.js";
         balance = 0;
     }
 
-    $(".get-balance").click(getbal);
-
-    function getbal() {
-        $(".bank-balance").html(document.cookie + "₽");
+    //when get-balance is clicked, the balance element is updated with the bank_balance
+    $(".get-balance").click(function () {
+        $(".bank-balance").html(bank_balance + "₽");
         $(".get-balance").hide();
     }
+    );
