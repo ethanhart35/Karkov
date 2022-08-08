@@ -1,5 +1,6 @@
 import { loot } from "./loot.js";
 
+    //Global variables
     var randLoot;
     var balance = 0;
     var bank_balance = 0;
@@ -23,16 +24,18 @@ import { loot } from "./loot.js";
             if(time<1){
                 clearInterval(countdown);
                 $(".loot-container").html("");
-            $("#roll").show();
-            for (let i = 0; i < 3; i++) {
-                task(i);
-            }
+                
+                //Shows the roll button after 4 seconds
+                setTimeout(function(){
+                    $("#roll").show();
+                }, 4000);
 
-            function task(i) {
-                setTimeout(function () {
-                    lootroll()
-                }, 1500 * i);
-            }
+                //Runs the lootroll function 3 times
+                for (let i = 0; i < 3; i++) {
+                    setTimeout(function () {
+                        lootroll()
+                    }, 1500 * i);
+                }
             }
         }, 1000);
     };
@@ -72,7 +75,7 @@ import { loot } from "./loot.js";
         var lootbox = $('<div>', {
             class: 'loot-box',
         })
-        balance = balance + randLoot.price;
+        balance += randLoot.price;
         $(".balance").html(balance + "₽");
         lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append("<p class = randlootname>" + randLoot.name + "</p>").append("<br>").append("<p class = randlootprice>" + randLoot.price + " ₽" + "</p>");
         $(".loot-container").append(lootbox);
