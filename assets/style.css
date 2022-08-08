@@ -96,6 +96,11 @@ p.time {
     font-size: 35px;
 }
 
+img {
+    height: 80px;
+    width: 80px;
+}
+
 a {
     text-decoration: none;
     color: inherit;

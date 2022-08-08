@@ -75,17 +75,19 @@ import { loot } from "./loot.js";
         var lootbox = $('<div>', {
             class: 'loot-box',
         })
+        //balance is displayed with comma spearator
         balance += randLoot.price;
-        $(".balance").html(balance + "₽");
+        $(".balance").html(balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+        
         //the loot price is displayed with comma separators
         var price = randLoot.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append("<p class = randlootname>" + randLoot.name + "</p>").append("<br>").append("<p class = randlootprice>" + price + " ₽" + "</p>");
+        lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append("<p class = randlootname>" + randLoot.name + "</p>").append("<br>").append("<p class = randlootprice>" + price + "₽" + "</p>");
         $(".loot-container").append(lootbox);
     }
 
     $("#bank").click(sell)
 
-    //Resets balance element to 0
+    //Resets balance element to 0 and saves balance to cookie
     function sell() {
         var cookie = parseInt(document.cookie);
         if (cookie > 0) {
