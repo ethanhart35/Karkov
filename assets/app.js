@@ -103,7 +103,7 @@ import { loot } from "./loot.js";
 
     //when get-balance is clicked, the balance element is updated with the bank_balance
     $(".get-balance").click(function () {
-        $(".bank-balance").html(bank_balance + "₽");
+        $(".bank-balance").html(document.cookie.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
         $(".get-balance").hide();
     }
     );
