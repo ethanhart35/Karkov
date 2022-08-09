@@ -100,6 +100,12 @@ import { loot } from "./loot.js";
 
     //when get-balance is clicked, the balance element is updated with the bank_balance
     $(".get-balance").click(function () {
-        $(".bank-balance").html(document.cookie.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+
         $(".get-balance").hide();
+        if(document.cookie < 1){
+            $(".bank-balance").html("0₽");
+        }
+        else {
+            $(".bank-balance").html(document.cookie.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+        }
     });
