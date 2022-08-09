@@ -99,11 +99,8 @@ h3 {
 }
 
 h6 {
-    position: absolute;
     line-height: 1;
     text-align: center;
-    left: 50%;
-    transform: translateX(-50%);
     bottom: 10px;
     font-size: 11px;
 }

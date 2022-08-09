@@ -3,6 +3,7 @@ import { loot } from "./loot.js";
     //Global variables
     var randLoot;
     var balance = 0;
+    let cookie = parseInt(document.cookie);
     var armor = [];
     var boost = [];
 
@@ -88,7 +89,7 @@ import { loot } from "./loot.js";
 
     $("#bank").click(function () {
         let bank_balance = 0;
-        let cookie = parseInt(document.cookie);
+        
         if (cookie > 0) {
             bank_balance = balance + cookie;
         }
@@ -119,11 +120,14 @@ import { loot } from "./loot.js";
 
 
     function buy() {
-        if (document.cookie >= this.dataset.value){
-            $(".bank-balance").html(document.cookie.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
-            
+        let price = this.dataset.value;
+        let cookie = parseInt(document.cookie);
+        console.log(price)
+        if (cookie >= price){    
+            cookie = cookie - price;
+            $(".bank-balance").html(cookie.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
         }
         else {
             alert("You don't have enough money");
-        }    
+        }   
     }
