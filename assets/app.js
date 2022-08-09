@@ -3,6 +3,8 @@ import { loot } from "./loot.js";
     //Global variables
     var randLoot;
     var balance = 0;
+    var armor = [];
+    var boost = [];
 
     //On button click run the roll function
     $("#roll").click(roll);
@@ -109,3 +111,19 @@ import { loot } from "./loot.js";
             $(".bank-balance").html(document.cookie.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
         }
     });
+
+
+    //when the booster or armor image is clicked the boost or armor value is increased by 1
+    //The amount is taken off the balance
+    $(".imgholder").click(buy);
+
+
+    function buy() {
+        if (document.cookie >= this.dataset.value){
+            $(".bank-balance").html(document.cookie.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+            
+        }
+        else {
+            alert("You don't have enough money");
+        }    
+    }
