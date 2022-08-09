@@ -92,6 +92,12 @@ h2 {
     font-size: 40px;
 }
 
+h3 {
+    color: #3e1e72;
+    text-align: center;
+    font-size: 30px;
+}
+
 h6 {
     position: absolute;
     line-height: 1;
@@ -135,42 +141,34 @@ h6 {
     font-weight: bold;
 }
 
-.listings a {
-    text-decoration: none;
-    color: #9a8866;
-    font-size: 17px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.listings a:hover {
-    text-decoration: none;
-    color: #6b6b6b;
-    font-size: 17px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.boosters {
-
+.listings {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin: 20px 0 0 0;
+    flex-wrap: wrap;
+}
+
+.boosters {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
 }
 
 .armor {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
 .imgholder {
     position: relative;
+    margin-bottom: 20px;
 }
 
 .imgholder span {
     background-color: #1B1B1B;
-    width: 100%;
+    width: 99%;
     height: 45px;
     position: absolute;
     left: 0px;
