@@ -3,7 +3,6 @@ import { loot } from "./loot.js";
     //Global variables
     var randLoot;
     var balance = 0;
-    var bank_balance = 0;
 
     //On button click run the roll function
     $("#roll").click(roll);
@@ -85,13 +84,11 @@ import { loot } from "./loot.js";
         $(".loot-container").append(lootbox);
     }
 
-    $("#bank").click(sell)
-
-    //Resets balance element to 0 and saves balance to cookie
-    function sell() {
-        var cookie = parseInt(document.cookie);
+    $("#bank").click(function () {
+        let bank_balance = 0;
+        let cookie = parseInt(document.cookie);
         if (cookie > 0) {
-            bank_balance = bank_balance + balance + cookie;
+            bank_balance = balance + cookie;
         }
         else {
             bank_balance = bank_balance + balance;
@@ -99,11 +96,10 @@ import { loot } from "./loot.js";
         document.cookie = bank_balance;
         $(".balance").html(0 + "₽");
         balance = 0;
-    }
+    });
 
     //when get-balance is clicked, the balance element is updated with the bank_balance
     $(".get-balance").click(function () {
         $(".bank-balance").html(document.cookie.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
         $(".get-balance").hide();
-    }
-    );
+    });
