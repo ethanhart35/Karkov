@@ -91,9 +91,10 @@ p {
     bottom: -10px;
 }
 
-p.time {
+.time {
     color: red;
     font-size: 35px;
+    font-weight: bold;
 }
 
 img {
