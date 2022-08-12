@@ -4,8 +4,6 @@ import { loot } from "./loot.js";
     var randLoot;
     var balance = 0;
     let cookie = parseInt(document.cookie);
-    var armor = [];
-    var boost = [];
 
     //On button click run the roll function
     $("#roll").click(roll);
@@ -131,3 +129,23 @@ import { loot } from "./loot.js";
             alert("You don't have enough money");
         }   
     }
+
+    const logopath = document.querySelectorAll('#logoname path');
+    const logorect = document.querySelectorAll('#logoname rect');
+    const logoelli = document.querySelectorAll('#logoname ellipse');
+
+
+    for (let i = 0; i<logorect.length; i++) {
+        console.log(`rect ${i} is ${logorect[i].getTotalLength()}`);
+    }
+
+    for (let i = 0; i<logoelli.length; i++) {
+        console.log(`elli ${i} is ${logoelli[i].getTotalLength()}`);
+    }
+
+
+
+    for (let i = 0; i<logopath.length; i++) {
+        console.log(`letter ${i} is ${logopath[i].getTotalLength()}`);
+    }
+
