@@ -77,14 +77,15 @@ import { loot } from "./loot.js";
         })
         //balance is displayed with comma spearator
         
-        $(".balance").html(balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+        
         
         //the loot price is displayed with comma separators
         var price = randLoot.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append("<p class = randlootname>" + randLoot.name + "</p>").append("<br>").append("<p class = randlootprice>" + price + "₽" + "</p>").append("<br>").append("<button class = sell>" + "Sell" + "</button>");
+        lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append("<p class = randlootname>" + randLoot.name + "</p>").append("<br>").append("<p class = randlootprice>" + price + "₽" + "</p>").append("<br>").append("<button id = sell>" + "Sell" + "</button>");
         $(".loot-container").append(lootbox);
-        $(".sell").click(function () {
+        $("#sell").click(function () {
             balance += randLoot.price;
+            $(".balance").html(balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
         }
     }
 
