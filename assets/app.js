@@ -54,14 +54,14 @@ import { loot } from "./loot.js";
                 lootroll();
             }
         } else if (randLoot.rare === "rare") {
-            let chance = Math.floor(Math.random() * 25) + 1
+            let chance = Math.floor(Math.random() * 10) + 1
             if (chance === 1) {
                 postloot();
             } else {
                 lootroll();
             }
         } else if (randLoot.rare === "insane") {
-            let chance = Math.floor(Math.random() * 75) + 1
+            let chance = Math.floor(Math.random() * 25) + 1
             if (chance === 1) {
                 postloot();
             } else {
