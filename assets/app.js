@@ -85,10 +85,10 @@ import { loot } from "./loot.js";
         $(".loot-container").append(lootbox);
     }
 
-    $("#sell").click(function () {
-        balance += randLoot.price;
-        $(".balance").html(balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
-        }
+    $(document).on('click', '#sell', function () {
+    balance += randLoot.price;
+    $(".balance").html(balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+});
 
     $("#bank").click(function () {
         let bank_balance = 0;
