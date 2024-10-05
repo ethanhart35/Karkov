@@ -2,7 +2,7 @@ const loot = [{
     name: "Bitcoin",
     img: "https://ethanhart35.github.io/Karkov/images/physical_bitcoin.png",
     rare: "insane",
-    price: 250000
+    price: 765000
 },
 {
     name: "GPU",
@@ -19,8 +19,8 @@ const loot = [{
 {
     name: "GP Coin",
     img: "https://ethanhart35.github.io/Karkov/images/GP_coin.png",
-    rare: "rare",
-    price: 25000
+    rare: "medium",
+    price: 5000
 },
 {
     name: "Skullring",
@@ -38,7 +38,7 @@ const loot = [{
     name: "Prokill Medallion",
     img: "https://ethanhart35.github.io/Karkov/images/prokill.png",
     rare: "medium",
-    price: 45000
+    price: 65000
 },
 {
     name: "Bolts",
@@ -307,8 +307,8 @@ const loot = [{
 {
     name: "Greenbat",
     img: "https://ethanhart35.github.io/Karkov/images/greenbat.png",
-    rare: "medium",
-    price: 18000
+    rare: "insane",
+    price: 350000
 },
 {
     name: "Gunpowder Kite",
@@ -500,7 +500,7 @@ const loot = [{
     name: "Cat Statue",
     img: "https://ethanhart35.github.io/Karkov/images/catstatue.png",
     rare: "rare",
-    price: 22000
+    price: 40000
 },
 {
     name: "Rechargable Battery",
@@ -524,7 +524,7 @@ const loot = [{
     name: "Gold Chain",
     img: "https://ethanhart35.github.io/Karkov/images/goldchain.png",
     rare: "rare",
-    price: 20000
+    price: 35000
 },
 {
     name: "Wires",
@@ -571,8 +571,8 @@ const loot = [{
 {
     name: "Powerbank",
     img: "https://ethanhart35.github.io/Karkov/images/powerbank.png",
-    rare: "rare",
-    price: 45000
+    rare: "insane",
+    price: 300000
 },
 {
     name: "Light Bulb",
@@ -698,7 +698,7 @@ const loot = [{
     name: "Powercord",
     img: "https://ethanhart35.github.io/Karkov/images/powercord.png",
     rare: "medium",
-    price: 15000
+    price: 25000
 },
 {
     name: "Duct Tape",
