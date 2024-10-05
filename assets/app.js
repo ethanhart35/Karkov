@@ -83,11 +83,12 @@ import { loot } from "./loot.js";
         var price = randLoot.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append("<p class = randlootname>" + randLoot.name + "</p>").append("<br>").append("<p class = randlootprice>" + price + "₽" + "</p>").append("<br>").append("<button id = sell>" + "Sell" + "</button>");
         $(".loot-container").append(lootbox);
-        $("#sell").click(function () {
-            balance += randLoot.price;
-            $(".balance").html(balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
-        }
     }
+
+    $("#sell").click(function () {
+        balance += randLoot.price;
+        $(".balance").html(balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+        }
 
     $("#bank").click(function () {
         let bank_balance = 0;
