@@ -50,6 +50,13 @@ $(document).on('click', '#sell', function () {
     $(".balance").html(balance.toLocaleString() + "₽");
 });
 
+// Stash functionality - dims the item and shows "Sent to stash"
+$(document).on('click', '#stash', function () {
+    const lootBox = $(this).closest('.loot-box');
+    lootBox.addClass('dim');
+    $(this).remove();  // Optional: Remove the stash button after it's clicked
+});
+
 // Bank balance management
 $("#bank").click(function () {
     let bank_balance = balance + Math.max(cookie, 0);
