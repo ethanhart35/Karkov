@@ -1,156 +1,81 @@
 import { loot } from "./loot.js";
 
-    //Global variables
-    var randLoot;
-    var balance = 0;
-    let cookie = parseInt(document.cookie);
+// Global variables
+let balance = 0, randLoot, cookie = parseInt(document.cookie);
 
-    //On button click run the roll function
-    $("#roll").click(roll);
+// On button click, run roll function
+$("#roll").click(roll);
 
-    //Clears loot container and runs countdown function and then runs the lootroll function 3 times
-    function roll() {
-        let time = 1;
-        $("#roll").hide();
-        $(".loot-container").empty();
-        $("#bank").show();
-        $(".stash").show();
-        $(".balance").show();
-        $(".loot-container").html("<p class = time>" + time + "s" + "</p>");
+// Roll function - runs countdown, lootroll, and displays results
+function roll() {
+    let time = 1;
+    $("#roll").hide();
+    $(".loot-container, #bank, .stash, .balance").show().empty();
+    $(".loot-container").html(`<p class="time">${time}s</p>`);
 
-        const countdown = setInterval(() => {
-            time--;
-            $(".loot-container").html("<p class = time>" + time + "s" + "</p>")
-            if(time<1){
-                clearInterval(countdown);
-                $(".loot-container").html("");
-                
-                //Shows the roll button after 4 seconds
-                setTimeout(function(){
-                    $("#roll").show();
-                }, 4000);
-
-                //Runs the lootroll function 3 times
-                for (let i = 0; i < 3; i++) {
-                    setTimeout(function () {
-                        lootroll()
-                    }, 1500 * i);
-                }
-            }
-        }, 1000);
-    };
-
-    //lootroll function decides the rarity of an item and then runs postloot function
-    function lootroll() {
-        randLoot = loot[Math.floor(Math.random() * loot.length)]
-
-        if (randLoot.rare === "common") {
-            postloot();
-        } else if (randLoot.rare === "medium") {
-            let chance = Math.floor(Math.random() * 5) + 1
-            if (chance === 1) {
-                postloot();
-            } else {
-                lootroll();
-            }
-        } else if (randLoot.rare === "rare") {
-            let chance = Math.floor(Math.random() * 10) + 1
-            if (chance === 1) {
-                postloot();
-            } else {
-                lootroll();
-            }
-        } else if (randLoot.rare === "insane") {
-            let chance = Math.floor(Math.random() * 25) + 1
-            if (chance === 1) {
-                postloot();
-            } else {
-                lootroll();
-            }
+    const countdown = setInterval(() => {
+        $(".loot-container").html(`<p class="time">${--time}s</p>`);
+        if (time < 1) {
+            clearInterval(countdown);
+            $(".loot-container").empty();
+            setTimeout(() => $("#roll").show(), 4000);
+            for (let i = 0; i < 3; i++) setTimeout(lootroll, 1500 * i);
         }
-    }
+    }, 1000);
+}
 
-    //postloot function appends the chosen loot to the page
-    function postloot() {
-        var lootbox = $('<div>', {
-            class: 'loot-box',
-        })
-        //balance is displayed with comma spearator
-        
-        
-        
-        //the loot price is displayed with comma separators
-        var price = randLoot.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        lootbox.append("<img src=" + randLoot.img + ">").append("<br>").append("<p class = randlootname>" + randLoot.name + "</p>").append("<br>").append("<p class = randlootprice>" + price + "₽" + "</p>").append("<br>").append("<button id = sell>" + "Quick Sell" + "</button>").append("<button id = stash>" + "Stash" + "</button>");
-        $(".loot-container").append(lootbox);
-    }
+// Lootroll function - determines rarity and runs postloot
+function lootroll() {
+    randLoot = loot[Math.floor(Math.random() * loot.length)];
+    const chances = { medium: 5, rare: 10, insane: 25 };
+    const rarity = chances[randLoot.rare];
+    (!rarity || Math.random() * rarity < 1) ? postloot() : lootroll();
+}
 
-    $(document).on('click', '#sell', function () {
+// Postloot function - appends loot to the page
+function postloot() {
+    const price = randLoot.price.toLocaleString();
+    const lootbox = $(`<div class="loot-box">
+        <img src="${randLoot.img}"><br>
+        <p class="randlootname">${randLoot.name}</p><br>
+        <p class="randlootprice">${price}₽</p><br>
+        <button id="sell">Quick Sell</button><button id="stash">Stash</button>
+    </div>`);
+    $(".loot-container").append(lootbox);
+}
+
+// Quick sell functionality
+$(document).on('click', '#sell', function () {
     balance += randLoot.price;
-    $(".balance").html(balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+    $(".balance").html(balance.toLocaleString() + "₽");
 });
 
-    $("#bank").click(function () {
-        let bank_balance = 0;
-        
-        if (cookie > 0) {
-            bank_balance = balance + cookie;
-        }
-        else {
-            bank_balance = bank_balance + balance;
-        }
-        document.cookie = bank_balance;
-        $(".balance").html(0 + "₽");
-        balance = 0;
-    });
+// Bank balance management
+$("#bank").click(function () {
+    let bank_balance = balance + Math.max(cookie, 0);
+    document.cookie = bank_balance;
+    $(".balance").html("0₽");
+    balance = 0;
+});
 
-    //when get-balance is clicked, the balance element is updated with the bank_balance
-    $(".get-balance").click(function () {
+// Display bank balance on button click
+$(".get-balance").click(function () {
+    $(this).hide();
+    $(".bank-balance").html(parseInt(document.cookie || 0).toLocaleString() + "₽");
+});
 
-        $(".get-balance").hide();
-        if(document.cookie < 1){
-            $(".bank-balance").html("0₽");
-        }
-        else {
-            $(".bank-balance").html(document.cookie.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
-        }
-    });
-
-
-    //when the booster or armor image is clicked the boost or armor value is increased by 1
-    //The amount is taken off the balance
-    $(".imgholder").click(buy);
-
-
-    function buy() {
-        let price = this.dataset.value;
-        let cookie = parseInt(document.cookie);
-        console.log(price)
-        if (cookie >= price){    
-            cookie = cookie - price;
-            $(".bank-balance").html(cookie.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
-        }
-        else {
-            alert("You don't have enough money");
-        }   
+// Buying booster/armor
+$(".imgholder").click(function () {
+    let price = this.dataset.value, cookie = parseInt(document.cookie);
+    if (cookie >= price) {
+        cookie -= price;
+        $(".bank-balance").html(cookie.toLocaleString() + "₽");
+    } else {
+        alert("You don't have enough money");
     }
+});
 
-    const logopath = document.querySelectorAll('#logoname path');
-    const logorect = document.querySelectorAll('#logoname rect');
-    const logoelli = document.querySelectorAll('#logoname ellipse');
-
-
-    for (let i = 0; i<logorect.length; i++) {
-        console.log(`rect ${i} is ${logorect[i].getTotalLength()}`);
-    }
-
-    for (let i = 0; i<logoelli.length; i++) {
-        console.log(`elli ${i} is ${logoelli[i].getTotalLength()}`);
-    }
-
-
-
-    for (let i = 0; i<logopath.length; i++) {
-        console.log(`letter ${i} is ${logopath[i].getTotalLength()}`);
-    }
-
+// Logging logo element lengths
+['rect', 'ellipse', 'path'].forEach(tag => 
+    $(`#logoname ${tag}`).each((i, el) => console.log(`${tag} ${i} is ${el.getTotalLength()}`))
+);
