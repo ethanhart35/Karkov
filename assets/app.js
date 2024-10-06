@@ -69,7 +69,9 @@ $(document).on('click', '#sell', function () {
 $(document).on('click', '#stash', function () {
     const lootBox = $(this).closest('.loot-box');
     lootBox.addClass('dim');
-    $(this).remove();  // Optional: Remove the stash button after it's clicked
+    $(this).remove();
+    $("#sell").remove();
+    // Optional: Remove the stash button after it's clicked
 });
 
 // Bank balance management
