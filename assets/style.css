@@ -244,8 +244,8 @@ a:hover {
 }
 
 .loot-box {
-    width: 200px;
-    height: 200px;
+    width: 30%;
+    height: 100%;
     display: flex;
     margin: 25px 10px 25px 10px;
     justify-content: center;
