@@ -279,6 +279,22 @@ a:hover {
     margin: 10px 0 0 0;
 }
 
+.dim {
+    opacity: 0.5;
+    position: relative;
+}
+
+.dim::after {
+    content: "Sent to stash";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 #logoname rect {
     stroke-dasharray: 1334px;
     stroke-dashoffset: 1334px;
