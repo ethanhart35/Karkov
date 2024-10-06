@@ -6,22 +6,37 @@ let balance = 0, randLoot, cookie = parseInt(document.cookie);
 // On button click, run roll function
 $("#roll").click(roll);
 
-// Roll function - runs countdown, lootroll, and displays results
 function roll() {
-    let time = 1;
+    let time = 900; // 15 minutes in seconds
     $("#roll").hide();
     $(".loot-container, #bank, .stash, .balance").show().empty();
-    $(".loot-container").html(`<p class="time">${time}s</p>`);
 
+    // Initial display of time
+    $(".loot-container").html(`<p class="time">${formatTime(time)}</p>`);
+
+    // Countdown function
     const countdown = setInterval(() => {
-        $(".loot-container").html(`<p class="time">${--time}s</p>`);
+        time--;
+        $(".loot-container").html(`<p class="time">${formatTime(time)}</p>`);
+
         if (time < 1) {
             clearInterval(countdown);
             $(".loot-container").empty();
+            
+            // Show the roll button again after 4 seconds
             setTimeout(() => $("#roll").show(), 4000);
+
+            // Run the lootroll function 3 times
             for (let i = 0; i < 3; i++) setTimeout(lootroll, 1500 * i);
         }
     }, 1000);
+}
+
+// Helper function to format time as MM:SS
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
 
 // Lootroll function - determines rarity and runs postloot
