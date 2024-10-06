@@ -7,7 +7,7 @@ let balance = 0, randLoot, cookie = parseInt(document.cookie);
 $("#roll").click(roll);
 
 function roll() {
-    let time = 900; // 15 minutes in seconds
+    let time = 1; // 15 minutes in seconds
     $("#roll").hide();
     $(".loot-container, #bank, .stash, .balance").show().empty();
 
