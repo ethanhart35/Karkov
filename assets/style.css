@@ -158,6 +158,7 @@ a:hover {
 }
 
 #stash {
+    display: block;
     color: #9a8866;
     background-color: #1B1B1B;
     border: none;
@@ -172,6 +173,7 @@ a:hover {
 
 
 #sell {
+    display:block;
     color: #9a8866;
     background-color: #1B1B1B;
     border: none;
