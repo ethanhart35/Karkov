@@ -1,7 +1,10 @@
 import { loot } from "./loot.js";
 
 // Global variables
-let balance = 0, randLoot, cookie = parseInt(document.cookie);
+let randLoot
+let currentUserName;
+// Load accounts from local storage or initialize as an empty object
+let accounts = JSON.parse(localStorage.getItem('accounts')) || {};
 
 // On button click, run roll function
 $("#roll").click(roll);
@@ -24,7 +27,7 @@ function roll() {
             $(".loot-container").empty();
             
             // Show the roll button again after 4 seconds
-            setTimeout(() => $("#roll").show(), 4000);
+            setTimeout(() => $("#roll").show(), 6000);
 
             // Run the lootroll function 3 times
             for (let i = 0; i < 3; i++) setTimeout(lootroll, 1500 * i);
@@ -76,48 +79,33 @@ function postloot() {
 
 // Quick sell functionality
 $(document).on('click', '#sell', function () {
+    currentUserName = localStorage.getItem('currentUserName');
+    if (!currentUserName) {
+        console.error("No user is currently logged in.");
+        return; // Exit if no user is logged in
+    }
+
     let price = parseInt($(this).data('price')); // Get price from the button's data attribute
-        balance += price;
-        $(".balance").html(balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
-        $(this).remove();
-});
 
-// Stash functionality - dims the item and shows "Sent to stash"
-$(document).on('click', '#stash', function () {
-    const lootBox = $(this).closest('.loot-box');
-    lootBox.addClass('dim');
-    $(this).remove();
-    // Optional: Remove the stash button after it's clicked
-});
-
-// Bank balance management
-$("#bank").click(function () {
-    let bank_balance = balance + Math.max(cookie, 0);
-    document.cookie = bank_balance;
-    $(".balance").html("0₽");
-    balance = 0;
-});
-
-// Display bank balance on button click
-$(".get-balance").click(function () {
-    $(this).hide();
-    $(".bank-balance").html(parseInt(document.cookie || 0).toLocaleString() + "₽");
-});
-
-// Buying booster/armor
-$(".imgholder").click(function () {
-    let price = this.dataset.value, cookie = parseInt(document.cookie);
-    if (cookie >= price) {
-        cookie -= price;
-        $(".bank-balance").html(cookie.toLocaleString() + "₽");
+    // Check if the account exists
+    if (accounts.hasOwnProperty(currentUserName)) {
+        let lootBox = $(this).closest('.loot-box'); // Get the closest loot box
+        lootBox.addClass('dim'); // Dim the loot box
+        $(this).remove(); // Remove the sell button
+        // Update the balance in memory
+        accounts[currentUserName].balance += price;
+        // Update the display balance
+        $(".balance").html(accounts[currentUserName].balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+        // Save updated accounts to local storage
+        saveAccounts();
     } else {
-        alert("You don't have enough money");
+        console.error("Account not found for user:", currentUserName);
     }
 });
 
+
 //Account Creation
-// Load accounts from local storage or initialize as an empty object
-let accounts = JSON.parse(localStorage.getItem('accounts')) || {};
+
 
 // Function to save accounts to local storage
 function saveAccounts() {
@@ -152,23 +140,25 @@ $(document).on('click', '#create', function () {
 });
 
 $(document).on('click', '#login', function () {
-    let userName = $("#username").val().trim(); // Get the value from the username input
-    let passWord = $("#password").val().trim(); // Get the value from the password input
+    let userName = $("#username").val().trim();
+    let passWord = $("#password").val().trim();
 
-    // Check if either the username or password is empty
     if (!userName || !passWord) {
         alert("Please fill in both fields.");
-        return; // Stop further execution
+        return;
     }
-
-    // Check if the username exists and if the password matches
     if (accounts.hasOwnProperty(userName)) {
         if (accounts[userName].password === passWord) {
-            // Redirect to raid.html
-            window.location.href = 'assets/raid.html'; // Change this to your desired page
+            currentUserName = userName; // Set the current user name
+            localStorage.setItem('currentUserName', currentUserName); // Save to local storage
+            
+            // Retrieve and display user's balance
+            let userBalance = accounts[currentUserName].balance || 0;
+            $(".balance").html(userBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+
+            window.location.href = 'assets/raid.html';
         } else {
-            $("#password").val("");
-            $("#password").attr("placeholder", "Wrong Password").addClass("placeholder-red");
+            $("#password").val("").attr("placeholder", "Wrong Password").addClass("placeholder-red");
         }
     } else {
         $("#username").val("").attr("placeholder", "Username not found").addClass("placeholder-red");
@@ -176,3 +166,11 @@ $(document).on('click', '#login', function () {
     }
 });
 
+$(document).ready(function() {
+    currentUserName = localStorage.getItem('currentUserName');
+    
+    // Check if the user is logged in
+        let userBalance = accounts[currentUserName].balance || 0;
+        $(".balance").html(userBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+
+});
