@@ -106,6 +106,14 @@ input {
     font-weight: bold;
 }
 
+input::placeholder {
+    color: gray; /* Default placeholder color */
+}
+
+.placeholder-red::placeholder {
+    color: red; /* Placeholder color for error */
+}
+
 a {
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.418);

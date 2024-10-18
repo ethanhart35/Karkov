@@ -167,11 +167,12 @@ $(document).on('click', '#login', function () {
             // Redirect to raid.html
             window.location.href = 'assets/raid.html'; // Change this to your desired page
         } else {
-            $("#message").text("Incorrect password.").css("color", "red");
+            $("#password").val("");
+            $("#password").attr("placeholder", "Wrong Password").addClass("placeholder-red");
         }
     } else {
-        $("#message").text("Account does not exist.").css("color", "red");
+        $("#username").val("").attr("placeholder", "Username not found").addClass("placeholder-red");
+        $("#password").val("");
     }
 });
-
 
