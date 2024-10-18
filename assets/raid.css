@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&family=Ubuntu:wght@300&display=swap');
+
+
+html,
+body {
+margin: 0;
+padding: 0;
+overflow-x:hidden;
+}
+
+
+html {
+color: #9a8866;
+font-family: 'Rajdhani', sans-serif;
+}
+
+body {
+background-color: #000;
+margin: 0;
+}
+
+.nav {
+height: 60px;
+background-color: #1B1B1B;
+padding: 10px;
+overflow: hidden;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+}
+
+h1 {
+margin: 0 0 50px 0;
+border-bottom: 2px solid rgba(255, 255, 255, 0.418);
+animation: 1.5s ease-out 0s 1 slideInFromTop;
+font-size: 40px;
+letter-spacing: 4px;
+}
+
+h2 {
+color: #70A804;
+text-align: center;
+}
+
+/* Footer styling */
+h6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #9a8866;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+}
+
+p {
+color: #AEAEB0;
+font-size: 14px;
+line-height: 0;
+position: relative;
+bottom: -10px;
+}
+
+.time {
+color: red;
+font-size: 35px;
+font-weight: bold;
+}
+
+img {
+height: 80px;
+width: 80px;
+}
+
+a {
+text-decoration: none;
+color: inherit;
+font-size: 25px;
+font-weight: bold;
+padding: 0 10px;
+letter-spacing: 3px;
+}
+
+a:nth-child(2) {
+border-left: 2px solid #aeaeb03d;
+}
+
+a:hover {
+color: #6b6b6b;
+border-bottom: 2px solid #aeaeb03d;
+transition: ease-in-out 0.5s;
+}
+
+
+.button-container {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 20px 0 0 0;
+}
+
+.button-container2 {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 20px 0 0 0;
+}
+
+.balance-container {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 20px 0 0 0;
+}
+
+.stash {
+display: none;
+color: #9a8866;
+margin: 60px 0 0 0;
+border-bottom: 4px solid #1B1B1B;
+}
+
+.balance {
+margin: 40px 0 0 0;
+max-width: 500px;
+min-height: 30px;
+text-align: center;
+}
+
+#stash {
+display: block;
+color: #9a8866;
+background-color: #1B1B1B;
+border: none;
+border-radius: 5px;
+width: 100%;
+height: 30px;
+transition: .1s ease-in;
+font-size: 14px;
+letter-spacing: 2px;
+animation: 1.5s ease-in-out 0s 1 buttonGrow;
+}
+
+
+#sell {
+display:block;
+color: #9a8866;
+background-color: #1B1B1B;
+border: none;
+border-radius: 5px;
+width: 100%;
+height: 30px;
+transition: .1s ease-in;
+font-size: 14px;
+letter-spacing: 2px;
+animation: 1.5s ease-in-out 0s 1 buttonGrow;
+}
+
+#roll {
+color: #9a8866;
+background-color: #1B1B1B;
+border: none;
+border-radius: 5px;
+width: 130px;
+height: 40px;
+transition: .1s ease-in;
+font-size: 15px;
+letter-spacing: 2px;
+animation: 1.5s ease-in-out 0s 1 buttonGrow;
+}
+
+#roll:hover {
+transition: .1s ease-in;
+color: #000;
+background-color: #9a8866;
+}
+
+#bank {
+display: none;
+color: #9a8866;
+background-color: #1B1B1B;
+border: none;
+border-radius: 5px;
+width: 130px;
+height: 40px;
+transition: .2s ease-in;
+font-size: 15px;
+}
+
+#bank:hover {
+transition: .2s ease-in;
+color: #000;
+background-color: #9a8866;
+}
+
+.loot-container {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+height: 40%;
+}
+.loot-box {
+width: 30%;
+height: 100%;
+display: flex;
+margin: 25px 10px 25px 10px;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+flex-direction: column;
+background-color: #0d0d0d;
+border: 2px solid #9a886686;
+border-radius: 5px;
+text-align: center;
+transition: .1s ease-out;
+}
+
+.loot-box:hover {
+transform: scale(1.01);
+transition: .1s ease-in;
+}
+
+.randlootname {
+font-size: 15px;
+color: #9a8866;
+font-weight: bold;
+margin: 10px 0 0 0;
+}
+
+.randlootprice {
+font-size: 15px;
+color: #70A804;
+font-weight: bold;
+letter-spacing: 1px;
+margin: 10px 0 0 0;
+}
+
+.dim {
+    opacity: 0.5;
+    position: relative;
+}
+
+.dim::after {
+    content: "Sent to stash";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}

@@ -1,0 +1,177 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ethan\\Desktop\\Kharkov\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\raid.html||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\raid.html||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\store.html||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\store.html||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ethan\\Desktop\\Kharkov\\index.html||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\app.js||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\app.js||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\raid.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\raid.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\store.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\store.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\stash.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\stash.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\stash.html||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\stash.html||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\style.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\style.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "raid.html",
+              "DocumentMoniker": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\raid.html",
+              "RelativeDocumentMoniker": "assets\\raid.html",
+              "ToolTip": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\raid.html",
+              "RelativeToolTip": "assets\\raid.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-08T00:21:20.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "stash.html",
+              "DocumentMoniker": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\stash.html",
+              "RelativeDocumentMoniker": "assets\\stash.html",
+              "ToolTip": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\stash.html",
+              "RelativeToolTip": "assets\\stash.html",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAEoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-08T00:24:58.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "store.html",
+              "DocumentMoniker": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\store.html",
+              "RelativeDocumentMoniker": "assets\\store.html",
+              "ToolTip": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\store.html",
+              "RelativeToolTip": "assets\\store.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-08T00:04:56.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "store.css",
+              "DocumentMoniker": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\store.css",
+              "RelativeDocumentMoniker": "assets\\store.css",
+              "ToolTip": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\store.css",
+              "RelativeToolTip": "assets\\store.css",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAG0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-08T00:31:23.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "raid.css",
+              "DocumentMoniker": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\raid.css",
+              "RelativeDocumentMoniker": "assets\\raid.css",
+              "ToolTip": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\raid.css",
+              "RelativeToolTip": "assets\\raid.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-08T00:32:56.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\style.css",
+              "RelativeDocumentMoniker": "assets\\style.css",
+              "ToolTip": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\style.css",
+              "RelativeToolTip": "assets\\style.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-08T00:18:05.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "stash.css",
+              "DocumentMoniker": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\stash.css",
+              "RelativeDocumentMoniker": "assets\\stash.css",
+              "ToolTip": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\stash.css",
+              "RelativeToolTip": "assets\\stash.css",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAHUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-08T00:16:22.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\ethan\\Desktop\\Kharkov\\index.html",
+              "RelativeDocumentMoniker": "index.html",
+              "ToolTip": "C:\\Users\\ethan\\Desktop\\Kharkov\\index.html",
+              "RelativeToolTip": "index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-08T00:06:27.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "app.js",
+              "DocumentMoniker": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\app.js",
+              "RelativeDocumentMoniker": "assets\\app.js",
+              "ToolTip": "C:\\Users\\ethan\\Desktop\\Kharkov\\assets\\app.js",
+              "RelativeToolTip": "assets\\app.js",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-07T23:58:41.535Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

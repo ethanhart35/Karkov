@@ -9,7 +9,7 @@ $("#roll").click(roll);
 function roll() {
     let time = 1; // 15 minutes in seconds
     $("#roll").hide();
-    $(".loot-container, #bank, .stash, .balance").show().empty();
+    $(".loot-container, #bank, .stash").show().empty();
 
     // Initial display of time
     $(".loot-container").html(`<p class="time">${formatTime(time)}</p>`);
@@ -49,20 +49,37 @@ function lootroll() {
 
 // Postloot function - appends loot to the page
 function postloot() {
-    const price = randLoot.price.toLocaleString();
-    const lootbox = $(`<div class="loot-box">
-        <img src="${randLoot.img}"><br>
-        <p class="randlootname">${randLoot.name}</p><br>
-        <p class="randlootprice">${price}₽</p><br>
-        <button id="sell">Quick Sell</button><button id="stash">Stash</button>
-    </div>`);
+    var lootbox = $('<div>', {
+        class: 'loot-box',
+    });
+    
+    // Balance is displayed with comma separators
+    var price = randLoot.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    
+    // Create the sell button and store the price in a data attribute
+    var sellButton = $('<button>', {
+        id: 'sell',
+        text: 'Sell',
+        'data-price': randLoot.price // Store the price here
+    });
+
+    lootbox.append("<img src=" + randLoot.img + ">")
+        .append("<br>")
+        .append("<p class='randlootname'>" + randLoot.name + "</p>")
+        .append("<br>")
+        .append("<p class='randlootprice'>" + price + "₽" + "</p>")
+        .append("<br>")
+        .append(sellButton);
+
     $(".loot-container").append(lootbox);
 }
 
 // Quick sell functionality
 $(document).on('click', '#sell', function () {
-    balance += randLoot.price;
-    $(".balance").html(balance.toLocaleString() + "₽");
+    let price = parseInt($(this).data('price')); // Get price from the button's data attribute
+        balance += price;
+        $(".balance").html(balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
+        $(this).remove();
 });
 
 // Stash functionality - dims the item and shows "Sent to stash"
@@ -70,7 +87,6 @@ $(document).on('click', '#stash', function () {
     const lootBox = $(this).closest('.loot-box');
     lootBox.addClass('dim');
     $(this).remove();
-    $("#sell").remove();
     // Optional: Remove the stash button after it's clicked
 });
 
@@ -99,7 +115,63 @@ $(".imgholder").click(function () {
     }
 });
 
-// Logging logo element lengths
-['rect', 'ellipse', 'path'].forEach(tag => 
-    $(`#logoname ${tag}`).each((i, el) => console.log(`${tag} ${i} is ${el.getTotalLength()}`))
-);
+//Account Creation
+// Load accounts from local storage or initialize as an empty object
+let accounts = JSON.parse(localStorage.getItem('accounts')) || {};
+
+// Function to save accounts to local storage
+function saveAccounts() {
+    localStorage.setItem('accounts', JSON.stringify(accounts));
+}
+
+// Event listener for account creation
+$(document).on('click', '#create', function () {
+    let userName = $("#username").val().trim(); // Get the value from the username input
+    let passWord = $("#password").val().trim(); // Get the value from the password input
+
+    // Check if either the username or password is empty
+    if (!userName || !passWord) {
+        alert("Please fill in both fields.");
+        return; // Stop further execution
+    }
+
+    // Check if the username already exists
+    if (accounts.hasOwnProperty(userName)) {
+        alert("Sorry, this account already exists.");
+    } else {
+        // Store user data as an object
+        accounts[userName] = {
+            password: passWord,
+            balance: 0,
+            stash: ['','','','','','','','','','','','','','','','','','','','','','','','']
+        };
+        saveAccounts(); // Save updated accounts to local storage
+        alert("Account created successfully!");
+        window.location.href = 'assets/raid.html';
+    }
+});
+
+$(document).on('click', '#login', function () {
+    let userName = $("#username").val().trim(); // Get the value from the username input
+    let passWord = $("#password").val().trim(); // Get the value from the password input
+
+    // Check if either the username or password is empty
+    if (!userName || !passWord) {
+        alert("Please fill in both fields.");
+        return; // Stop further execution
+    }
+
+    // Check if the username exists and if the password matches
+    if (accounts.hasOwnProperty(userName)) {
+        if (accounts[userName].password === passWord) {
+            // Redirect to raid.html
+            window.location.href = 'assets/raid.html'; // Change this to your desired page
+        } else {
+            $("#message").text("Incorrect password.").css("color", "red");
+        }
+    } else {
+        $("#message").text("Account does not exist.").css("color", "red");
+    }
+});
+
+

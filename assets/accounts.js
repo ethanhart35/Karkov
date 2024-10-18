@@ -1,0 +1,5 @@
+const accounts = [{
+
+}]
+
+export {accounts}
