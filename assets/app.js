@@ -143,7 +143,7 @@ $(document).on('click', '#create', function () {
         accounts[userName] = {
             password: passWord,
             balance: 0,
-            stash: ['','','','','','','','','','','','','','','','','','','','','','','','']
+            stash: ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','']
         };
         saveAccounts(); // Save updated accounts to local storage
         alert("Account created successfully!");
