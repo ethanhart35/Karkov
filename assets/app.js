@@ -5,6 +5,7 @@ let randLoot
 let currentUserName;
 // Load accounts from local storage or initialize as an empty object
 let accounts = JSON.parse(localStorage.getItem('accounts')) || {};
+let sellcounter = 0;
 
 // On button click, run roll function
 $("#roll").click(roll);
@@ -25,12 +26,8 @@ function roll() {
         if (time < 1) {
             clearInterval(countdown);
             $(".loot-container").empty();
-            
-            // Show the roll button again after 4 seconds
-            setTimeout(() => $("#roll").show(), 6000);
-
             // Run the lootroll function 3 times
-            for (let i = 0; i < 3; i++) setTimeout(lootroll, 1500 * i);
+            for (let i = 0; i < 3; i++) setTimeout(lootroll, 1800 * i);
         }
     }, 1000);
 }
@@ -79,6 +76,11 @@ function postloot() {
 
 // Quick sell functionality
 $(document).on('click', '#sell', function () {
+    sellcounter ++
+    if (sellcounter == 3) {
+        $('.loot-container').empty();
+        $('#roll').show();
+    }
     currentUserName = localStorage.getItem('currentUserName');
     if (!currentUserName) {
         console.error("No user is currently logged in.");
