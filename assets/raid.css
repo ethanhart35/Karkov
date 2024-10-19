@@ -117,13 +117,6 @@ align-items: center;
 margin: 20px 0 0 0;
 }
 
-.stash {
-display: none;
-color: #9a8866;
-margin: 60px 0 0 0;
-border-bottom: 4px solid #1B1B1B;
-}
-
 .balance {
 margin: 40px 0 0 0;
 max-width: 500px;
@@ -229,6 +222,22 @@ margin: 10px 0 0 0;
 }
 
 .dim::after {
+    content: "Sold";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.dim2 {
+    opacity: 0.5;
+    position: relative;
+}
+
+.dim2::after {
     content: "Sent to stash";
     position: absolute;
     top: 50%;

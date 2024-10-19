@@ -17,7 +17,7 @@ function roll() {
         accounts[currentUserName].time = 10; // Update the time in the accounts object
         saveAccounts();
     }
-    
+    userTime = accounts[currentUserName].time;
     $("#roll").hide();
     $(".loot-container, #bank, .stash").show().empty();
 
@@ -71,13 +71,21 @@ function postloot() {
         'data-price': randLoot.price // Store the price here
     });
 
+    const stashButton = $('<button>', {
+        id: 'stash',
+        class: 'stash',
+        text: 'Stash'
+    });
+
+
     lootbox.append("<img src=" + randLoot.img + ">")
         .append("<br>")
         .append("<p class='randlootname'>" + randLoot.name + "</p>")
         .append("<br>")
         .append("<p class='randlootprice'>" + price + "₽" + "</p>")
         .append("<br>")
-        .append(sellButton);
+        .append(sellButton)
+        .append(stashButton);
 
     $(".loot-container").append(lootbox);
 }
@@ -102,6 +110,7 @@ $(document).on('click', '#sell', function () {
         let lootBox = $(this).closest('.loot-box'); // Get the closest loot box
         lootBox.addClass('dim'); // Dim the loot box
         $(this).remove(); // Remove the sell button
+        $('#stash').remove();
         // Update the balance in memory
         accounts[currentUserName].balance += price;
         // Update the display balance
@@ -112,6 +121,29 @@ $(document).on('click', '#sell', function () {
         console.error("Account not found for user:", currentUserName);
     }
 });
+
+$(document).on('click', '.stash', function () {
+    const lootBox = $(this).closest('.loot-box'); // Get the closest loot box
+    const lootName = lootBox.find('.randlootname').text(); // Get the loot name
+    const lootPrice = parseInt(lootBox.find('.randlootprice').text().replace(/\D/g, '')); // Get the loot price
+
+    // Find the corresponding loot item in the current loot array
+    const stashItem = loot.find(item => item.name === lootName && item.price === lootPrice);
+
+    if (stashItem) {
+        // Store the item in the user's stash
+        if (accounts[currentUserName]) {
+            accounts[currentUserName].stash.push(stashItem);
+            saveAccounts(); // Save updated accounts to local storage
+        }
+    }
+
+    lootBox.addClass('dim2'); // Dim the loot box to indicate it has been stashed
+    $(this).remove(); // Remove the stash button (optional)
+    $('#sell').remove();
+});
+
+
 
 
 //Account Creation
