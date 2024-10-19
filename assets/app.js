@@ -11,7 +11,7 @@ let userTime
 $("#roll").click(roll);
 
 function roll() {
-    
+    sellcounter = 0;
     userTime = accounts[currentUserName].time;
     if (userTime < 1){
         accounts[currentUserName].time = 10; // Update the time in the accounts object
