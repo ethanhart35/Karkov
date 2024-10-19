@@ -17,7 +17,7 @@ function roll() {
         accounts[currentUserName].time = 10; // Update the time in the accounts object
         saveAccounts();
     }
-    userTime = accounts[currentUserName].time;
+    
     $("#roll").hide();
     $(".loot-container, #bank, .stash").show().empty();
 
@@ -31,7 +31,6 @@ function roll() {
         accounts[currentUserName].time = newTime; // Update the time in the accounts object
         saveAccounts();
         $(".loot-container").html(`<p class="time">${formatTime(userTime)}</p>`);
-
         if (userTime < 1) {
             clearInterval(countdown);
             $(".loot-container").empty();
@@ -182,7 +181,7 @@ $(document).ready(function() {
     currentUserName = localStorage.getItem('currentUserName');
     userTime = accounts[currentUserName].time
     if (userTime < 10){
-        roll();
+        roll()
         $("#roll").hide();
     }
     // Check if the user is logged in
