@@ -6,24 +6,33 @@ let currentUserName;
 // Load accounts from local storage or initialize as an empty object
 let accounts = JSON.parse(localStorage.getItem('accounts')) || {};
 let sellcounter = 0;
-
+let userTime
 // On button click, run roll function
 $("#roll").click(roll);
 
 function roll() {
-    let time = 1; // 15 minutes in seconds
+    
+    userTime = accounts[currentUserName].time;
+    if (userTime < 1){
+        accounts[currentUserName].time = 10; // Update the time in the accounts object
+        saveAccounts();
+    }
+    userTime = accounts[currentUserName].time;
     $("#roll").hide();
     $(".loot-container, #bank, .stash").show().empty();
 
     // Initial display of time
-    $(".loot-container").html(`<p class="time">${formatTime(time)}</p>`);
+    $(".loot-container").html(`<p class="time">${formatTime(userTime)}</p>`);
 
     // Countdown function
     const countdown = setInterval(() => {
-        time--;
-        $(".loot-container").html(`<p class="time">${formatTime(time)}</p>`);
+        userTime--;
+        let newTime = userTime
+        accounts[currentUserName].time = newTime; // Update the time in the accounts object
+        saveAccounts();
+        $(".loot-container").html(`<p class="time">${formatTime(userTime)}</p>`);
 
-        if (time < 1) {
+        if (userTime < 1) {
             clearInterval(countdown);
             $(".loot-container").empty();
             // Run the lootroll function 3 times
@@ -133,7 +142,8 @@ $(document).on('click', '#create', function () {
         accounts[userName] = {
             password: passWord,
             balance: 0,
-            stash: ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','']
+            stash: [],
+            time: 10
         };
         saveAccounts(); // Save updated accounts to local storage
         alert("Account created successfully!");
@@ -170,9 +180,14 @@ $(document).on('click', '#login', function () {
 
 $(document).ready(function() {
     currentUserName = localStorage.getItem('currentUserName');
-    
+    userTime = accounts[currentUserName].time
+    if (userTime < 10){
+        roll();
+        $("#roll").hide();
+    }
     // Check if the user is logged in
-        let userBalance = accounts[currentUserName].balance || 0;
+        let userStash = accounts[currentUserName].stash;
+        let userBalance = accounts[currentUserName].balance;
         $(".balance").html(userBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₽");
 
 });
