@@ -1,5 +1,0 @@
-const accounts = [{
-
-}]
-
-export {accounts}
