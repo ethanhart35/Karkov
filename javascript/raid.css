@@ -95,6 +95,13 @@ border-bottom: 2px solid #aeaeb03d;
 transition: ease-in-out 0.5s;
 }
 
+#username {
+    position: absolute;
+    left: 20px;
+    font-weight: bold;
+    font-size: 30px;
+    text-transform: capitalize;
+}
 
 .button-container {
 display: flex;

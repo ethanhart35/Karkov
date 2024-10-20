@@ -15,6 +15,7 @@
 <body>
 
     <div class="nav">
+        <div id="username"></div>
         <a href="./stash.html">Stash</a>
         <a href="./store.html">Store</a>
     </div>
@@ -30,7 +31,18 @@
     <div class="button-container">
         <button id="roll">Enter Raid</button>
     </div>
-    
+    <script>
+        // Immediately check for the username in localStorage
+        const username = localStorage.getItem('username');
+        const usernameDisplay = document.getElementById('username');
+
+        // Display the username if it exists, otherwise show 'Guest'
+        if (username) {
+            usernameDisplay.textContent = username;
+        } else {
+            usernameDisplay.textContent = 'Guest';
+        }
+    </script>
 </body>
 
 </html>

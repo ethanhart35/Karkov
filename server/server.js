@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const { connectToDatabase } = require('./mongo'); // Import the database connection
-const bcrypt = require('bcrypt');
+const { connectToDatabase } = require('./mongo'); // Import the database connection from mongo.js
+const bcrypt = require('bcrypt'); //require bcrypt from the bcrypt module
 const saltRounds = 10;  // Number of salt rounds for password hashing
 require('dotenv').config();
 const app = express();
@@ -30,7 +30,7 @@ app.post('/addUser', async (req, res) => {
     try {
         const db = await connectToDatabase();
         const users = db.collection('Users');
-
+        
         // Check if the username already exists
         const existingUser = await users.findOne({ username: req.body.username });
         if (existingUser) {
@@ -62,23 +62,25 @@ app.post('/login', async (req, res) => {
         const db = await connectToDatabase();
         const users = db.collection('Users');
         const user = await users.findOne({ username: req.body.username });
-        console.log(req.body.username)
-        console.log(user.username)
-        if (!req.body.username, !req.body.password){
-            console.log("NO")
-            return
-        }
         if (user && await bcrypt.compare(req.body.password, user.password)) {
             console.log("success login")
             res.json({ success: true });
         } else {
-            res.status(401).send('Invalid credentials');
+            res.json({success: false});
         }
     } catch (error) {
         console.error('Error during login:', error);
-        res.status(500).send('Error logging in');
     }
 });
+
+
+
+
+
+
+
+
+
 
 app.use((err, req, res, next) => {
     const defaultErr = 

@@ -3,7 +3,6 @@ document.getElementById('create').addEventListener('click', async () => {
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
   console.log(username, password);
-
   // Send the data to the server via a POST request
   try {
     console.log(username, password);
@@ -17,8 +16,9 @@ document.getElementById('create').addEventListener('click', async () => {
 
       const result = await response.json();
         if (result.success) {
-            // Redirect to another page on successful login
-            window.location.href = 'raid.html'; // Change this to your target page
+          localStorage.setItem('username', username);
+          // Redirect to raid page on successful login
+          window.location.href = 'raid.html'; // Change this to your target page
         } else {
             alert("FAILED"); // Alert the error message
         }
@@ -31,7 +31,10 @@ document.getElementById('create').addEventListener('click', async () => {
 document.getElementById('login').addEventListener('click', async () => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-  
+  if (!username && !password){
+    console.log("WRONG")
+    return
+  }
     // Send the data to the server via a POST request
     try {
       console.log(username, password);
@@ -45,17 +48,17 @@ document.getElementById('login').addEventListener('click', async () => {
   
         const result = await response.json();
         if (result.success) {
-            // Redirect to another page on successful login
-            window.location.href = 'raid.html'; // Change this to your target page
+          localStorage.setItem('username', username);
+          // Redirect to raid page on successful login
+          window.location.href = 'raid.html'; // Change this to your target page
         } else {
-            alert("FAILED"); // Alert the error message
+            alert("Wrong Password"); // Alert the error message
         }
     } catch (error) {
         console.error('Error getting account:', error);
-        alert('Error getting account. Please try again.');
+        alert('Account doesnt exist');
     }
   });
-
 
 
 //import { loot } from "./loot.js";
